@@ -1,0 +1,22 @@
+<section class="machine-select">
+
+    <form class="search-container">
+        <input type="text" id="search-bar" placeholder="Search...">
+        <a href="#"><img class="search-icon"
+                src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+    </form>
+
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+
+        <div [fxFlex]="25 + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let machine of machineList; let i=index">
+            <mat-card class="card" (click)="navigateTo(machine)">
+                <mat-card-header>
+                    <mat-card-title>{{machine.name}}</mat-card-title>
+                </mat-card-header>
+                <img matCardImage [src]='machine.imageUrl'>
+            </mat-card>
+        </div>
+
+    </div>
+
+</section>

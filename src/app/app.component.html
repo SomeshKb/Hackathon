@@ -1,27 +1,26 @@
-
 <mat-drawer-container class="container mat-typography" autosize>
-  <mat-drawer #drawer mode="side" disableClose="true" opened="true">
+  <mat-drawer #drawer mode="side" disableClose="true" opened="true" class="drawer">
     <button mat-mini-fab (click)="isExpanded = !isExpanded" color="warn" style="margin: 10px;">
       <mat-icon aria-label="Menu">menu</mat-icon>
     </button>
     <mat-nav-list>
-      
+
       <mat-list-item [routerLink]="''">
-        <mat-icon mat-list-icon >home</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">Home</h4>
+        <mat-icon class="nav-icon" mat-list-icon>home</mat-icon>
+        <h4 mat-line class="nav-text" *ngIf="isExpanded">Home</h4>
       </mat-list-item>
 
       <mat-list-item [routerLink]="'create'">
-        <mat-icon mat-list-icon >person</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">Create Digital Twin</h4>
+        <mat-icon class="nav-icon" mat-list-icon>build</mat-icon>
+        <h4 mat-line class="nav-text" *ngIf="isExpanded">Select Machine</h4>
       </mat-list-item>
       <!-- <mat-list-item>
         <mat-icon mat-list-icon>assignment</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">Upload CAD</h4>
+        <h4 mat-line class="nav-text" *ngIf="isExpanded">Upload CAD</h4>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>domain</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">Manage Digital Twin</h4>
+        <h4 mat-line class="nav-text" *ngIf="isExpanded">Manage Digital Twin</h4>
       </mat-list-item> -->
     </mat-nav-list>
   </mat-drawer>

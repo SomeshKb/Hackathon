@@ -1,9 +1,24 @@
 .container {
   height: 100vh;
+  background: #5584AC;
+  .drawer{
+    background: #22577E;
+    color: #fff;
+  }
 
   .sidenav-content {
-    background: white;
     padding-left: 10px;
     height: 100%;
   }
+}
+
+.nav-icon{
+  color: #fff;
+}
+
+.nav-text{
+  color: #fff;
+}
+ .mat-mini-fab.mat-warn {
+  background-color: #5584ac;
 }

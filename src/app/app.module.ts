@@ -14,12 +14,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { CreateDigitalTwinComponent } from './component/create-digital-twin/create-digital-twin.component';
 import { HomeComponent } from './component/home/home.component';
+import { SceneService } from './service/scene.service';
+import { MachineSelectionComponent } from './component/machine-selection/machine-selection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateDigitalTwinComponent,
-    HomeComponent
+    HomeComponent,
+    MachineSelectionComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { HomeComponent } from './component/home/home.component';
     MatIconModule,
     MatListModule
   ],
-  providers: [],
+  providers: [SceneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

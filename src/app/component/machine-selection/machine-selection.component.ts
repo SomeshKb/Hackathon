@@ -14,16 +14,16 @@ export class MachineSelectionComponent implements OnInit {
     {
       id: "kuka",
       name: "KukaRobot",
-      imageUrl: "../../../assets/images/kuka.png",
-      modelUrl: "../../assets/3dmodels/kuka.glb",
+      imageUrl: "./assets/images/kuka.png",
+      modelUrl: "./assets/3dmodels/kuka.glb",
       modelPosition: new Vector3(0, -1, 0),
       modelScale: new Vector3(0.01, 0.01, 0.01)
     },
     {
       id: "kuka2",
       name: "KukaRobot 2",
-      imageUrl: "../../../assets/images/kuka.png",
-      modelUrl: "../../assets/3dmodels/kuka2.glb",
+      imageUrl: "./assets/images/kuka.png",
+      modelUrl: "./assets/3dmodels/kuka2.glb",
       modelPosition: new Vector3(0, -1, 0),
       modelScale: new Vector3(0.005, 0.005, 0.005)
     }

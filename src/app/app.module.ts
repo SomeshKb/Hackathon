@@ -18,6 +18,7 @@ import { SceneService } from './service/scene.service';
 import { MachineSelectionComponent } from './component/machine-selection/machine-selection.component';
 import { DigitalTwinComponent } from './component/digital-twin/digital-twin.component';
 import { DigitalTwinOverviewComponent } from './component/digital-twin-overview/digital-twin-overview.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { DigitalTwinOverviewComponent } from './component/digital-twin-overview/
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [SceneService],
   bootstrap: [AppComponent]

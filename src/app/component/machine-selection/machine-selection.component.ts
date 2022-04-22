@@ -26,7 +26,25 @@ export class MachineSelectionComponent implements OnInit {
       modelUrl: "../../assets/3dmodels/turbo.glb",
       modelPosition: new Vector3(0, 0, 0),
       modelScale: new Vector3(0.5, 0.5, 0.5)
+    },
+    {
+      id: "turbo",
+      name: "Turbofan Engine",
+      imageUrl: "../../../assets/images/turbo.png",
+      modelUrl: "../../assets/3dmodels/turbo.glb",
+      modelPosition: new Vector3(0, 0, 0),
+      modelScale: new Vector3(0.5, 0.5, 0.5)
+    },
+    {
+      id: "turbo2",
+      name: "Turbofan Engine-2",
+      imageUrl: "../../../assets/images/turbo2.png",
+      modelUrl: "../../assets/3dmodels/turbo2.glb",
+      modelPosition: new Vector3(0, 0, 0),
+      modelScale: new Vector3(0.5, 0.5, 0.5)
     }
+
+
   ]
 
   constructor(private router: Router) { }
@@ -37,5 +55,10 @@ export class MachineSelectionComponent implements OnInit {
   navigateTo(machine: Machine) {
     localStorage.setItem(machine.id, JSON.stringify(machine));
     this.router.navigateByUrl(`/create/${machine.id}`);
+  }
+
+  search(event: any) {
+    console.log(event.target.value)
+    this.machineList
   }
 }

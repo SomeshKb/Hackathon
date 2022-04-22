@@ -1,7 +1,7 @@
 <section class="machine-select">
 
     <form class="search-container">
-        <input type="text" id="search-bar" placeholder="Search...">
+        <input type="text" id="search-bar" placeholder="Search..." (keyup)="search($event)">
         <a href="#"><img class="search-icon"
                 src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
     </form>
@@ -13,7 +13,7 @@
                 <mat-card-header>
                     <mat-card-title>{{machine.name}}</mat-card-title>
                 </mat-card-header>
-                <img matCardImage [src]='machine.imageUrl'>
+                <img class="card-image" matCardImage [src]='machine.imageUrl'>
             </mat-card>
         </div>
 

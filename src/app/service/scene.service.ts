@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-
 import {
   AmbientLight,
   AnimationMixer,
   Clock,
   Color,
-  DirectionalLight,
+  EquirectangularReflectionMapping,
   HemisphereLight,
-  Mesh,
-  MeshStandardMaterial,
   PerspectiveCamera,
   Scene,
+  sRGBEncoding,
+  Texture,
   Vector3,
   WebGLRenderer,
 } from 'three';
 
 import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 import { Machine } from '../shared/models/machine.model';
 
 @Injectable()
@@ -50,13 +50,13 @@ export class SceneService {
 
   directionalLightOptions = {
     color: 0xece1bc,
-    intensity: 2,
+    intensity: 20,
   };
 
   hemisphereOptions = {
-    skyColor: 0xddeeff,
-    groundColor: 0x0f0e0d,
-    intensity: 5,
+    skyColor: 0xffeeb1,
+    groundColor: 0x08020,
+    intensity: 4,
   };
 
   // CAMERA
@@ -70,7 +70,7 @@ export class SceneService {
     );
 
     // this.camera.position.set(-75, 35, 142);
-    this.camera.position.set(0, 0, 9.5);
+    this.camera.position.set(7, 4, 9.5);
   };
 
   // CONTROLS
@@ -89,12 +89,12 @@ export class SceneService {
 
     this.mainLight = new AmbientLight(
       this.directionalLightOptions.color,
-      this.directionalLightOptions.intensity
+      this.directionalLightOptions.intensity,
     );
-    this.mainLight.position.set(0, 0, 0);
-    var light = new AmbientLight(0xffffff);
-    this.scene.add(light);
-    this.scene.add(this.hemisphere, this.mainLight);
+    this.mainLight.position.set(-7, -4, -9.5);
+
+
+    this.scene.add(this.hemisphere);
   };
 
   // GEOMETRY
@@ -152,6 +152,8 @@ export class SceneService {
     // this.renderer.gammaFactor = this.gammaFactor;
     // this.renderer.gammaOutput = true;
     this.renderer.physicallyCorrectLights = true;
+    this.renderer.outputEncoding = sRGBEncoding;
+
 
     this.container.appendChild(this.renderer.domElement);
     window.addEventListener('resize', this.onWindowResize);
@@ -185,6 +187,21 @@ export class SceneService {
     this.createLight();
     this.createModels(machine.modelUrl, machine.modelPosition, machine.modelScale);
     this.createRenderer();
+    this.setEnviromentLighting().then((texture: any) => {
+      this.scene.environment = texture;
+    })
     this.start();
   };
+
+
+  setEnviromentLighting() {
+    return new Promise((resolve, reject) => {
+      new RGBELoader().load('./assets/hdr/venice_sunset.hdr', (texture: Texture) => {
+        texture.mapping = EquirectangularReflectionMapping;
+        resolve(texture);
+      }
+      )
+    });
+
+  }
 }

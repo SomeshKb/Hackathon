@@ -3,6 +3,31 @@
         <div class="container" #container></div>
     </div>
 
-    <div fxFlex="25" class="right-content">
+    <div fxFlex="24" fxLayout="column" fxLayoutAlign="space-between center" class="right-content">
+
+        <form fxLayout="column" fxLayoutAlign="start center" class="form" [formGroup]="machineForm">
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Connection url</mat-label>
+                <mat-select required formControlName="connectionUrl" (selectionChange)="connectionUrlChanged()">
+                    <mat-option disabled *ngIf="connectionUrls.length<1">No Data</mat-option>
+                    <mat-option *ngFor="let url of connectionUrls" [value]="url">{{url}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Select Machine</mat-label>
+                <mat-select required formControlName="machineID">
+                    <mat-option disabled *ngIf="machines.length<1">No Data</mat-option>
+                    <mat-option *ngFor="let machine of machines" [value]="machine.id">{{machine.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </form>
+        <button mat-flat-button  class="button"  [disabled]="this.machineForm.invalid"
+            (click)="createDigitalTwin()">Create Digital Twin</button>
+
+
     </div>
 </div>

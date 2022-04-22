@@ -91,8 +91,9 @@ export class SceneService {
       this.directionalLightOptions.color,
       this.directionalLightOptions.intensity
     );
-    this.mainLight.position.set(0, -4, 0);
-
+    this.mainLight.position.set(0, 0, 0);
+    var light = new AmbientLight(0xffffff);
+    this.scene.add(light);
     this.scene.add(this.hemisphere, this.mainLight);
   };
 

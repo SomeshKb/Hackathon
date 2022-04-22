@@ -1,7 +1,7 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { SceneService } from 'src/app/service/scene.service';
+import { SceneService } from 'src/app/services/scene.service';
 import { Machine } from 'src/app/shared/models/machine.model';
 @Component({
   selector: 'app-create-digital-twin',

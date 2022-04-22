@@ -43,13 +43,13 @@ export class MachineSelectionComponent implements OnInit {
       modelPosition: new Vector3(0, 0, 0),
       modelScale: new Vector3(0.5, 0.5, 0.5)
     }
-
-
   ]
+  filteredList: Machine[] = []
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.filteredList = this.machineList;
   }
 
   navigateTo(machine: Machine) {
@@ -58,7 +58,12 @@ export class MachineSelectionComponent implements OnInit {
   }
 
   search(event: any) {
-    console.log(event.target.value)
-    this.machineList
+    const searchText = event.target.value;
+    this.filteredList = this.machineList.filter(x => {
+      if (x.name.toLowerCase().includes(searchText)) {
+        return x;
+      }
+      return;
+    })
   }
 }

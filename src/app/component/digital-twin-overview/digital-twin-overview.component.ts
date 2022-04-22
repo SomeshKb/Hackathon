@@ -1,6 +1,6 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SceneService } from 'src/app/service/scene.service';
+import { SceneService } from 'src/app/services/scene.service';
 import { Machine } from 'src/app/shared/models/machine.model';
 
 @Component({

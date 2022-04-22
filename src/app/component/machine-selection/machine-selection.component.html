@@ -8,7 +8,7 @@
 
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
 
-        <div [fxFlex]="25 + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let machine of machineList; let i=index">
+        <div [fxFlex]="25 + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let machine of filteredList; let i=index">
             <mat-card class="card" (click)="navigateTo(machine)">
                 <mat-card-header>
                     <mat-card-title>{{machine.name}}</mat-card-title>

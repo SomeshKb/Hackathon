@@ -19,6 +19,8 @@ export class DigitalTwinComponent implements OnInit {
       modelScale: new Vector3(0.01, 0.01, 0.01)
     },
   ]
+
+  filteredList : Machine[]= [];
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -27,6 +29,16 @@ export class DigitalTwinComponent implements OnInit {
   navigateTo(machine: Machine) {
     localStorage.setItem(machine.id, JSON.stringify(machine));
     this.router.navigateByUrl(`/digital-twin/${machine.id}`);
+  }
+
+  search(event: any) {
+    const searchText = event.target.value;
+    this.filteredList = this.machineList.filter(x => {
+      if (x.name.toLowerCase().includes(searchText)) {
+        return x;
+      }
+      return;
+    })
   }
 
 }

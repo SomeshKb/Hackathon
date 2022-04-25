@@ -219,7 +219,7 @@ export class SceneService {
 
       const loadingElement = this.container?.parentElement?.lastChild as HTMLElement;
 
-      loadingElement.classList.add('fade-out');
+      loadingElement.classList.remove('fade-out');
        
   
 
@@ -229,6 +229,9 @@ export class SceneService {
 
       console.log('Loading complete!');
 
+      const loadingElement = this.container?.parentElement?.lastChild as HTMLElement;
+
+      loadingElement.classList.add('fade-out');
     };
 
 

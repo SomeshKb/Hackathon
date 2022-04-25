@@ -9,18 +9,26 @@ import { Vector3 } from 'three';
   styleUrls: ['./digital-twin.component.scss']
 })
 export class DigitalTwinComponent implements OnInit {
-  machineList : Machine[] = [
+  machineList: Machine[] = [
     {
       id: "kuka",
       name: "KukaRobot",
-      imageUrl: "../../../assets/images/kuka.png",
-      modelUrl: "../../assets/3dmodels/kuka.glb",
+      imageUrl: "./assets/images/kuka.png",
+      modelUrl: "./assets/3dmodels/kuka.glb",
       modelPosition: new Vector3(0, -1, 0),
       modelScale: new Vector3(0.01, 0.01, 0.01)
     },
+    {
+      id: "turbo",
+      name: "Turbofan Engine",
+      imageUrl: "./assets/images/turbo.png",
+      modelUrl: "./assets/3dmodels/turbo.glb",
+      modelPosition: new Vector3(0, 0, 0),
+      modelScale: new Vector3(0.5, 0.5, 0.5)
+    },
   ]
 
-  filteredList : Machine[]= [];
+  filteredList: Machine[] = [];
   constructor(private router: Router) { }
 
   ngOnInit(): void {

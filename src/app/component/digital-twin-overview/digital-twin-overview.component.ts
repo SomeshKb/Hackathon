@@ -10,7 +10,7 @@ import { Machine } from 'src/app/shared/models/machine.model';
 })
 export class DigitalTwinOverviewComponent implements OnInit {
   machineId: string = "";
-
+  
   constructor(
     @Inject(SceneService) private scene: SceneService,
     private route: ActivatedRoute

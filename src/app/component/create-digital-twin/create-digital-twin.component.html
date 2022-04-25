@@ -1,6 +1,10 @@
 <div fxLayout="row" class="main-content" fxLayoutAlign="space-between start">
     <div fxFlex="75" class="viewer">
-        <div class="container" #container></div>
+        <div class="container" #container>
+        </div>
+        <div class="loading-screen">
+            <div id="loader"></div>
+        </div>
     </div>
 
     <div fxFlex="24" fxLayout="column" fxLayoutAlign="space-between center" class="right-content">
@@ -25,7 +29,7 @@
             </mat-form-field>
 
         </form>
-        <button mat-flat-button  class="button"  [disabled]="this.machineForm.invalid"
+        <button mat-flat-button class="button" [disabled]="this.machineForm.invalid"
             (click)="createDigitalTwin()">Create Digital Twin</button>
 
 

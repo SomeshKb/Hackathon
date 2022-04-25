@@ -6,6 +6,7 @@ import {
   Color,
   EquirectangularReflectionMapping,
   HemisphereLight,
+  LoadingManager,
   PerspectiveCamera,
   Scene,
   sRGBEncoding,
@@ -47,6 +48,8 @@ export class SceneService {
 
   modelPosition = new Vector3(0, -1, 0);
   modelScale = new Vector3(0.01, 0.01, 0.01);
+
+  loadingManager : LoadingManager = new LoadingManager();
 
   directionalLightOptions = {
     color: 0xece1bc,
@@ -100,6 +103,8 @@ export class SceneService {
   // GEOMETRY
 
   private createModels = (modelPath: string, modelPosition: Vector3, modelScale: Vector3) => {
+    const manager = new LoadingManager();
+
     this.loader = new GLTFLoader();
     const loadModel = (gltf: GLTF) => {
       const model = gltf.scene.children[0];
@@ -185,6 +190,8 @@ export class SceneService {
     this.createCamera();
     this.createControls();
     this.createLight();
+
+    this.initializeLoadingManager();
     this.createModels(machine.modelUrl, machine.modelPosition, machine.modelScale);
     this.createRenderer();
     this.setEnviromentLighting().then((texture: any) => {
@@ -196,7 +203,7 @@ export class SceneService {
 
   setEnviromentLighting() {
     return new Promise((resolve, reject) => {
-      new RGBELoader().load('./assets/hdr/venice_sunset.hdr', (texture: Texture) => {
+      new RGBELoader(this.loadingManager).load('./assets/hdr/venice_sunset.hdr', (texture: Texture) => {
         texture.mapping = EquirectangularReflectionMapping;
         resolve(texture);
       }
@@ -204,4 +211,42 @@ export class SceneService {
     });
 
   }
+
+  initializeLoadingManager() {
+    this.loadingManager.onStart =  (url, itemsLoaded, itemsTotal) => {
+
+      console.log('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+
+      const loadingElement = this.container?.parentElement?.lastChild as HTMLElement;
+
+      loadingElement.classList.add('fade-out');
+       
+  
+
+    };
+
+    this.loadingManager.onLoad =  () => {
+
+      console.log('Loading complete!');
+
+    };
+
+
+    this.loadingManager.onProgress =  (url, itemsLoaded, itemsTotal) => {
+
+      // console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+      console.log('Loaded:', Math.round(itemsLoaded / itemsTotal * 100,) + '%')
+
+
+    };
+
+    this.loadingManager.onError =  (url) => {
+
+      console.log('There was an error loading ' + url);
+
+    };
+  }
+
+
+
 }

@@ -36,7 +36,7 @@ export class DigitalTwinComponent implements OnInit {
 
   navigateTo(machine: Machine) {
     localStorage.setItem(machine.id, JSON.stringify(machine));
-    this.router.navigateByUrl(`/digital-twin/${machine.id}`);
+    this.router.navigateByUrl(`/digital-twin/${machine.id}`, { state: machine });
   }
 
   search(event: any) {

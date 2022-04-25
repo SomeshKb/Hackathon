@@ -20,6 +20,8 @@ import { DigitalTwinComponent } from './component/digital-twin/digital-twin.comp
 import { DigitalTwinOverviewComponent } from './component/digital-twin-overview/digital-twin-overview.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PredictComponent } from './component/predict/predict.component';
+import { OverviewComponent } from './component/overview/overview.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     MachineSelectionComponent,
     DigitalTwinComponent,
-    DigitalTwinOverviewComponent
+    DigitalTwinOverviewComponent,
+    PredictComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs';
 import { SceneService } from 'src/app/services/scene.service';
 import { Machine } from 'src/app/shared/models/machine.model';
 
@@ -10,6 +11,8 @@ import { Machine } from 'src/app/shared/models/machine.model';
 })
 export class DigitalTwinOverviewComponent implements OnInit {
   machineId: string = "";
+
+  machine : Machine | null = null;
   
   constructor(
     @Inject(SceneService) private scene: SceneService,
@@ -20,10 +23,11 @@ export class DigitalTwinOverviewComponent implements OnInit {
       this.machineId = res["id"];
     })
 
+    this.machine = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem(this.machineId))));
   }
 
   ngOnInit(): void {
-  }
+    }
 
   @ViewChild('container')
   set container(container: ElementRef) {

@@ -103,9 +103,7 @@ export class SceneService {
   // GEOMETRY
 
   private createModels = (modelPath: string, modelPosition: Vector3, modelScale: Vector3) => {
-    const manager = new LoadingManager();
-
-    this.loader = new GLTFLoader();
+    this.loader = new GLTFLoader(this.loadingManager);
     const loadModel = (gltf: GLTF) => {
       const model = gltf.scene.children[0];
       model.position.copy(modelPosition);

@@ -1,16 +1,20 @@
 <div fxLayout="row" class="main-content" fxLayoutAlign="space-between start">
     <div fxFlex="50" class="viewer">
-        <div class="">
-            <div class="container" #container>
-            </div>
+        <div class="container" #container>
+        </div>
+        <div class="loading-screen">
+            <div id="loader"></div>
         </div>
     </div>
 
-    <div fxFlex="50" class="right-content">
+    <div fxFlex="49" class="right-content">
         <mat-tab-group animationDuration="1000ms">
-            <mat-tab label="First">Content 1</mat-tab>
-            <mat-tab label="Second">Content 2</mat-tab>
-            <mat-tab label="Third">Content 3</mat-tab>
+            <mat-tab label="Overview">
+                <app-overview [digitalTwin]="machine" ></app-overview>
+            </mat-tab>
+            <mat-tab label="Predict">
+                    <app-predict [digitalTwin]="machine" ></app-predict>
+            </mat-tab>
         </mat-tab-group>
     </div>
 </div>

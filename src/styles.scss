@@ -131,6 +131,16 @@ button.mat-focus-indicator.button-basic.mat-button.mat-button-base.mat-button-di
   cursor: not-allowed;
 }
 
-.chart-wrapper{
-    height: 380px !important;
-}   
+.chart-wrapper {
+  height: 380px !important;
+}
+
+div#loading-text {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin: -84px 0 0 -9px;
+  color: #BA55D3;
+  font-size: 20px;
+}

@@ -49,7 +49,7 @@ export class SceneService {
   modelPosition = new Vector3(0, -1, 0);
   modelScale = new Vector3(0.01, 0.01, 0.01);
 
-  loadingManager : LoadingManager = new LoadingManager();
+  loadingManager: LoadingManager = new LoadingManager();
 
   directionalLightOptions = {
     color: 0xece1bc,
@@ -211,38 +211,29 @@ export class SceneService {
   }
 
   initializeLoadingManager() {
-    this.loadingManager.onStart =  (url, itemsLoaded, itemsTotal) => {
-
-      console.log('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+    this.loadingManager.onStart = (url, itemsLoaded, itemsTotal) => {
 
       const loadingElement = this.container?.parentElement?.lastChild as HTMLElement;
-
       loadingElement.classList.remove('fade-out');
-       
-  
-
     };
 
-    this.loadingManager.onLoad =  () => {
-
-      console.log('Loading complete!');
+    this.loadingManager.onLoad = () => {
 
       const loadingElement = this.container?.parentElement?.lastChild as HTMLElement;
-
       loadingElement.classList.add('fade-out');
     };
 
 
-    this.loadingManager.onProgress =  (url, itemsLoaded, itemsTotal) => {
+    this.loadingManager.onProgress = (url, itemsLoaded, itemsTotal) => {
 
-      // console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
-      console.log('Loaded:', Math.round(itemsLoaded / itemsTotal * 100,) + '%')
+      const loadingElement: HTMLElement = this.container?.parentElement?.lastChild as HTMLElement;
+      const loadingTextDiv = loadingElement?.lastChild as HTMLElement;
+      loadingTextDiv.innerText = Math.round(itemsLoaded / itemsTotal * 100,) + '%';
     };
 
-    this.loadingManager.onError =  (url) => {
+    this.loadingManager.onError = (url) => {
 
       console.log('There was an error loading ' + url);
-
     };
   }
 

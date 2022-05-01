@@ -24,6 +24,7 @@ import { PredictComponent } from './component/predict/predict.component';
 import { OverviewComponent } from './component/overview/overview.component';
 import { ModelBarChartComponent } from './component/model-bar-chart/model-bar-chart.component';
 import { NgChartsModule } from 'ng2-charts';
+import { TwinSettingComponent } from './component/twin-setting/twin-setting.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NgChartsModule } from 'ng2-charts';
     DigitalTwinOverviewComponent,
     PredictComponent,
     OverviewComponent,
-    ModelBarChartComponent
+    ModelBarChartComponent,
+    TwinSettingComponent
   ],
   imports: [
     BrowserModule,

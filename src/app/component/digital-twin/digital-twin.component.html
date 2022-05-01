@@ -1,22 +1,26 @@
 <section class="machine-select">
 
     <form class="search-container">
-        <input type="text" id="search-bar" placeholder="Search...">
-        <a href="#"><img class="search-icon"
+        <input type="text" id="search-bar" placeholder="Search..." (keyup)="search($event)">
+        <a><img class="search-icon"
                 src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
     </form>
 
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
 
-        <div [fxFlex]="25 + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let machine of machineList; let i=index">
-            <mat-card class="card" (click)="navigateTo(machine)">
+        <div [fxFlex]="25 + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let twin of filteredList; let i=index">
+            <mat-card class="card" (click)="navigateTo(twin)">
                 <mat-card-header>
-                    <mat-card-title>{{machine.name}}</mat-card-title>
+                    <mat-card-title>{{twin.name}}</mat-card-title>
                 </mat-card-header>
-                <img  class="card-image" matCardImage [src]='machine.imageUrl'>
+                <img  class="card-image" matCardImage [src]='twin.machine.imageUrl'>
             </mat-card>
         </div>
 
+    </div>
+
+    <div class="no-data" *ngIf="filteredList.length==0">
+        <h2>No Data</h2>
     </div>
 
 </section>

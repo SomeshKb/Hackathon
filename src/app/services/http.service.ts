@@ -7,25 +7,31 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
+  url = "https://cryptic-falls-04173.herokuapp.com/api"
+
   constructor(private http: HttpClient) { }
 
-  public getMachines() : Observable<any>{
-    return this.http.get("/machine");
+  public getMachines(): Observable<any> {
+    return this.http.get(this.url + "/machine");
   }
 
-  public getMachineDetails(id:number) : Observable<any>{
-    return this.http.get(`/machine/${id}`);
+  public getMachineDetails(id: number): Observable<any> {
+    return this.http.get(this.url + `/machine/${id}`);
   }
 
-  public createDigitalTwin(data : any) : Observable<any>{
-    return this.http.post("/digital-twin",data);
+  public createDigitalTwin(data: any): Observable<any> {
+    return this.http.post(this.url + "/digital-twin", data);
   }
 
-  public getDigitalTwins() : Observable<any>{
-    return this.http.get("/digital-twin");
+  public getDigitalTwins(): Observable<any> {
+    return this.http.get(this.url + "/digital-twin");
   }
 
-  public getDigitalTwinDetails(id:number) : Observable<any>{
-    return this.http.get(`/digital-twin/${id}`);
+  public getDigitalTwinDetails(id: number): Observable<any> {
+    return this.http.get(this.url + `/digital-twin/${id}`);
+  }
+
+  public deletDigitalTwin(id: number): Observable<any> {
+    return this.http.delete(this.url + `/digital-twin/${id}`);
   }
 }

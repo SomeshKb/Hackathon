@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpService } from 'src/app/services/http.service';
 import { Machine } from 'src/app/shared/models/machine.model';
 import { Vector3 } from 'three';
 
@@ -9,44 +10,42 @@ import { Vector3 } from 'three';
   styleUrls: ['./digital-twin.component.scss']
 })
 export class DigitalTwinComponent implements OnInit {
-  machineList: Machine[] = [
-    {
-      id: "kuka",
-      name: "KukaRobot",
-      imageUrl: "./assets/images/kuka.png",
-      modelUrl: "./assets/3dmodels/kuka.glb",
-      modelPosition: new Vector3(0, -1, 0),
-      modelScale: new Vector3(0.01, 0.01, 0.01)
-    },
-    {
-      id: "turbo",
-      name: "Turbofan Engine",
-      imageUrl: "./assets/images/turbo.png",
-      modelUrl: "./assets/3dmodels/turbo.glb",
-      modelPosition: new Vector3(0, 0, 0),
-      modelScale: new Vector3(0.5, 0.5, 0.5)
-    },
+  digitalTwin: any[] = [
   ]
 
-  filteredList: Machine[] = [];
-  constructor(private router: Router) { }
+  filteredList: any[] = [];
+  constructor(private router: Router,
+    private httpService: HttpService
+  ) { }
 
   ngOnInit(): void {
+    this.httpService.getDigitalTwins().subscribe(res => {
+      res.data.map((x: any) => {
+        x.machine.modelPosition = this.convertToVector(x.machine.modelPosition);
+        x.machine.modelScale = this.convertToVector(x.machine.modelScale);
+        this.digitalTwin.push(x);
+      });
+      this.filteredList = this.digitalTwin;
+    });
   }
 
-  navigateTo(machine: Machine) {
-    localStorage.setItem(machine.id, JSON.stringify(machine));
-    this.router.navigateByUrl(`/digital-twin/${machine.id}`, { state: machine });
+  navigateTo(digitalTwin: any) {
+    localStorage.setItem(digitalTwin._id, JSON.stringify(digitalTwin));
+    this.router.navigateByUrl(`/digital-twin/${digitalTwin._id}`, { state: digitalTwin });
   }
 
   search(event: any) {
     const searchText = event.target.value;
-    this.filteredList = this.machineList.filter(x => {
+    this.filteredList = this.digitalTwin.filter(x => {
       if (x.name.toLowerCase().includes(searchText)) {
         return x;
       }
       return;
     })
+  }
+
+  convertToVector(value: number[]) {
+    return new Vector3(value[0], value[1], value[2])
   }
 
 }

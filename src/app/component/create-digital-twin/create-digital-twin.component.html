@@ -8,10 +8,14 @@
         </div>
     </div>
 
-    <div fxFlex="24" fxLayout="column" fxLayoutAlign="space-between center" class="right-content">
 
-        <form fxLayout="column" fxLayoutAlign="start center" class="form" [formGroup]="machineForm">
+    <div fxFlex="24" fxLayout="column" fxLayoutAlign="start center" class="right-content">
 
+        <h1 class="machine-name">{{machine?.name}}</h1>
+
+        <img class="machine-image" matCardImage [src]='machine.imageUrl'>
+
+        <form fxLayout="column" fxLayoutAlign="start center" class="form create-twin" [formGroup]="machineForm">
 
             <mat-form-field appearance="outline">
                 <mat-label>Connection url</mat-label>
@@ -23,10 +27,16 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Select Machine</mat-label>
-                <mat-select required formControlName="machineID">
-                    <mat-option disabled *ngIf="machines.length<1">No Data</mat-option>
-                    <mat-option *ngFor="let machine of machines" [value]="machine.id">{{machine.name}}</mat-option>
+                <mat-select required formControlName="mappedMachine">
+                    <mat-option disabled *ngIf="mappedmachines.length<1">No Data</mat-option>
+                    <mat-option *ngFor="let machine of mappedmachines" [value]="machine.id">{{machine.name}}
+                    </mat-option>
                 </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input required matInput formControlName="name">
             </mat-form-field>
 
         </form>

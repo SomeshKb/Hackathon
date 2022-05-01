@@ -11,8 +11,8 @@ export class PredictComponent implements OnInit {
   @Input('digitalTwin') digitalTwin: any
   items = ['Train', 'Predict'];
   trainDateRange = new FormGroup({
-    start: new FormControl("",[Validators.required]),
-    end: new FormControl("",[Validators.required]),
+    start: new FormControl("", [Validators.required]),
+    end: new FormControl("", [Validators.required]),
   });
   step = 0;
 
@@ -28,7 +28,7 @@ export class PredictComponent implements OnInit {
     this.step--;
   }
 
-  
+
   constructor() { }
 
   ngOnInit(): void {

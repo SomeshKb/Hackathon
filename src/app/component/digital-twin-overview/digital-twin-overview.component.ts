@@ -10,9 +10,9 @@ import { Machine } from 'src/app/shared/models/machine.model';
   styleUrls: ['./digital-twin-overview.component.scss']
 })
 export class DigitalTwinOverviewComponent implements OnInit {
-  machineId: string = "";
+  digitalTwinId: string = "";
 
-  machine : Machine | null = null;
+  digitalTwin : any = null;
   
   constructor(
     @Inject(SceneService) private scene: SceneService,
@@ -20,10 +20,10 @@ export class DigitalTwinOverviewComponent implements OnInit {
   ) {
 
     this.route.params.subscribe(res => {
-      this.machineId = res["id"];
+      this.digitalTwinId = res["id"];
     })
 
-    this.machine = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem(this.machineId))));
+    this.digitalTwin = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem(this.digitalTwinId))));
   }
 
   ngOnInit(): void {
@@ -31,7 +31,9 @@ export class DigitalTwinOverviewComponent implements OnInit {
 
   @ViewChild('container')
   set container(container: ElementRef) {
-    const machine: Machine = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem(this.machineId))))
-    this.scene.initialize(container.nativeElement, machine);
+    const digitalTwin: any = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem(this.digitalTwinId))))
+    console.log(digitalTwin)
+    this.scene.initialize(container.nativeElement, digitalTwin.machine);
   }
+  
 }

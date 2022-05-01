@@ -6,25 +6,6 @@
             </mat-panel-title>
         </mat-expansion-panel-header>
 
-
-        <mat-form-field appearance="fill">
-            <mat-label>Select Training data time range</mat-label>
-            <mat-date-range-input [formGroup]="trainDateRange" [rangePicker]="picker">
-                <input matStartDate formControlName="start" placeholder="Start date">
-                <input matEndDate formControlName="end" placeholder="End date">
-            </mat-date-range-input>
-            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-
-            <mat-error *ngIf="trainDateRange.controls['start'].hasError('matStartDateInvalid')">Invalid start date
-            </mat-error>
-            <mat-error *ngIf="trainDateRange.controls['end'].hasError('matEndDateInvalid')">Invalid end date</mat-error>
-        </mat-form-field>
-
-        <p>Selected range: {{trainDateRange.value | json}}</p>
-        <button mat-button class="button-basic" [disabled]="trainDateRange.invalid">Get Training Data</button>
-
         <mat-action-row>
             <button mat-button color="primary" (click)="nextStep()">Next</button>
         </mat-action-row>
@@ -33,7 +14,7 @@
     <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
         <mat-expansion-panel-header class="custom-expansion-header">
             <mat-panel-title>
-                Result
+                Test
             </mat-panel-title>
         </mat-expansion-panel-header>
 

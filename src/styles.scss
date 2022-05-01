@@ -144,3 +144,12 @@ div#loading-text {
   color: #BA55D3;
   font-size: 20px;
 }
+
+.no-data {
+  width: 100%;
+
+  h2 {
+    margin: 100px auto;
+    width: fit-content;
+  }
+}

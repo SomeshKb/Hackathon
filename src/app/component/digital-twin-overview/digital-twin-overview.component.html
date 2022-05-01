@@ -11,11 +11,14 @@
     <div fxFlex="49" class="right-content">
         <mat-tab-group animationDuration="1000ms">
             <mat-tab label="Overview">
-                <app-overview [digitalTwin]="machine" ></app-overview>
+                <app-overview [digitalTwin]="digitalTwin" ></app-overview>
             </mat-tab>
             <mat-tab label="Predict">
-                    <app-predict [digitalTwin]="machine" ></app-predict>
+                    <app-predict [digitalTwin]="digitalTwin" ></app-predict>
             </mat-tab>
+            <mat-tab label="Setting">
+                <app-twin-setting [digitalTwin]="digitalTwin" ></app-twin-setting>
+        </mat-tab>
         </mat-tab-group>
     </div>
 </div>

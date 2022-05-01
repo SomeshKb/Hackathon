@@ -237,8 +237,6 @@ export class SceneService {
 
       // console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
       console.log('Loaded:', Math.round(itemsLoaded / itemsTotal * 100,) + '%')
-
-
     };
 
     this.loadingManager.onError =  (url) => {

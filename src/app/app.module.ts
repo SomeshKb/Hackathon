@@ -22,6 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PredictComponent } from './component/predict/predict.component';
 import { OverviewComponent } from './component/overview/overview.component';
+import { ModelBarChartComponent } from './component/model-bar-chart/model-bar-chart.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { OverviewComponent } from './component/overview/overview.component';
     DigitalTwinComponent,
     DigitalTwinOverviewComponent,
     PredictComponent,
-    OverviewComponent
+    OverviewComponent,
+    ModelBarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { OverviewComponent } from './component/overview/overview.component';
     MatListModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [SceneService],
   bootstrap: [AppComponent]

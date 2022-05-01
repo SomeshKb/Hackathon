@@ -5,19 +5,19 @@
     </button>
     <mat-nav-list>
 
-      <mat-list-item [routerLink]="''">
+      <mat-list-item [routerLink]="''" routerLinkActive="nav-active" [routerLinkActiveOptions]="{exact: true}">
         <mat-icon class="nav-icon" mat-list-icon>home</mat-icon>
         <h4 mat-line class="nav-text" *ngIf="isExpanded">Home</h4>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'create'">
+      <mat-list-item [routerLink]="'create'" routerLinkActive="nav-active">
         <mat-icon class="nav-icon" mat-list-icon>build</mat-icon>
         <h4 mat-line class="nav-text" *ngIf="isExpanded">Select Machine</h4>
       </mat-list-item>
 
 
       
-      <mat-list-item [routerLink]="'digital-twin'">
+      <mat-list-item [routerLink]="'digital-twin'" routerLinkActive="nav-active">
         <mat-icon class="nav-icon" mat-list-icon>build</mat-icon>
         <h4 mat-line class="nav-text" *ngIf="isExpanded">Your Digital Twin</h4>
       </mat-list-item>

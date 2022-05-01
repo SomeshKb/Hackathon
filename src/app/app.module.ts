@@ -25,6 +25,8 @@ import { OverviewComponent } from './component/overview/overview.component';
 import { ModelBarChartComponent } from './component/model-bar-chart/model-bar-chart.component';
 import { NgChartsModule } from 'ng2-charts';
 import { TwinSettingComponent } from './component/twin-setting/twin-setting.component';
+import { MessageComponent } from './component/message/message.component';
+import { ServiceComponent } from './component/service/service.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { TwinSettingComponent } from './component/twin-setting/twin-setting.comp
     PredictComponent,
     OverviewComponent,
     ModelBarChartComponent,
-    TwinSettingComponent
+    TwinSettingComponent,
+    MessageComponent,
+    ServiceComponent
   ],
   imports: [
     BrowserModule,

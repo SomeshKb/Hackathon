@@ -64,9 +64,7 @@ export class CreateDigitalTwinComponent implements OnInit {
     console.log(requestBody)
 
     this.httpService.createDigitalTwin(requestBody).subscribe(res => {
-      console.log(res);
-      this.alertService.success('Digital Twin created', 3000, true);
-
+      this.alertService.success('Digital Twin created', 3, true);
       this.router.navigateByUrl("/digital-twin")
     });
 

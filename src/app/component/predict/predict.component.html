@@ -1,27 +1,31 @@
-<mat-accordion class="example-headers-align">
-    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
-        <mat-expansion-panel-header class="custom-expansion-header">
-            <mat-panel-title>
-                Train data
-            </mat-panel-title>
-        </mat-expansion-panel-header>
+<div div fxLayout="column" class="content" fxLayoutAlign="space-around start" fxLayoutGap="20px">
+<button mat-button class="button-basic" (click)="getLatestData()">Get Latest Data</button>
 
-        <mat-action-row>
-            <button mat-button color="primary" (click)="nextStep()">Next</button>
-        </mat-action-row>
-    </mat-expansion-panel>
+<div class="table-container">
 
-    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
-        <mat-expansion-panel-header class="custom-expansion-header">
-            <mat-panel-title>
-                Test
-            </mat-panel-title>
-        </mat-expansion-panel-header>
+<table mat-table [dataSource]="trainData" class="mat-elevation-z8" *ngIf="isLatestData">
 
+    <!-- Label Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Value Column -->
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef> Value </th>
+      <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+    </ng-container>
+  
+    <tr mat-header-row class="table-header" *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
 
-        <mat-action-row>
-            <button mat-button color="warn" (click)="prevStep()">Previous</button>
-        </mat-action-row>
-    </mat-expansion-panel>
+<span *ngIf="isLatestData">
+    Last Updated : {{lastUpdatedTime | date : 'dd/MM/yyyy hh:mm a'}}
+</span>
 
-</mat-accordion>
+<button mat-button *ngIf="isLatestData" class="button-basic" [disabled]="!isLatestData" (click)="train()">Train</button>
+</div>
+ 

@@ -7,6 +7,8 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  scrollbar-color: #d4aa70 #e4e4e4;
+  scrollbar-width: thin;
 }
 
 
@@ -157,4 +159,21 @@ div#loading-text {
 
 .nav-active {
   background: #5584ac !important;
+}
+
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  border: 5px solid transparent;
+  background-clip: content-box;
+  background-color: #22577e;
 }

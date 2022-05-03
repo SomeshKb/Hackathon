@@ -41,7 +41,15 @@ export class AlertService {
       this.subject.next({ type: 'error', text: message });
       this.isActive = true;
       this.hide(time);
+    }
+  }
 
+  info(message: string, time: number = 3, keepAfterNavigationChange = false) {
+    if (!this.isActive) {
+      this.keepAfterNavigationChange = keepAfterNavigationChange;
+      this.subject.next({ type: 'info', text: message });
+      this.isActive = true;
+      this.hide(time);
     }
   }
 

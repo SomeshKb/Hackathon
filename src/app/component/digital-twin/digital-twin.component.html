@@ -1,4 +1,4 @@
-<section class="machine-select">
+<section class="container">
 
     <form class="search-container">
         <input type="text" id="search-bar" placeholder="Search..." (keyup)="search($event)">
@@ -6,9 +6,9 @@
                 src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
     </form>
 
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxLayout="row wrap" class="content" fxLayoutGap="16px grid">
 
-        <div [fxFlex]="25 + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let twin of filteredList; let i=index">
+        <div [fxFlex]="14 + '%'" fxFlex.xs="100%" fxFlex.md="25%" fxFlex.sm="33%" *ngFor="let twin of filteredList; let i=index">
             <mat-card class="card" (click)="navigateTo(twin)">
                 <mat-card-header>
                     <mat-card-title>{{twin.name}}</mat-card-title>

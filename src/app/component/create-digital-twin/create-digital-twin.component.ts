@@ -1,6 +1,7 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertService } from 'src/app/services/alert.service';
 import { HttpService } from 'src/app/services/http.service';
 import { SceneService } from 'src/app/services/scene.service';
 import { Machine } from 'src/app/shared/models/machine.model';
@@ -27,7 +28,8 @@ export class CreateDigitalTwinComponent implements OnInit {
     @Inject(SceneService) private scene: SceneService,
     private route: ActivatedRoute,
     private router: Router,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private alertService: AlertService
   ) {
 
     this.route.params.subscribe(res => {
@@ -63,6 +65,8 @@ export class CreateDigitalTwinComponent implements OnInit {
 
     this.httpService.createDigitalTwin(requestBody).subscribe(res => {
       console.log(res);
+      this.alertService.success('Digital Twin created', 3000, true);
+
       this.router.navigateByUrl("/digital-twin")
     });
 

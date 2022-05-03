@@ -19,7 +19,7 @@ import { MachineSelectionComponent } from './component/machine-selection/machine
 import { DigitalTwinComponent } from './component/digital-twin/digital-twin.component';
 import { DigitalTwinOverviewComponent } from './component/digital-twin-overview/digital-twin-overview.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PredictComponent } from './component/predict/predict.component';
 import { OverviewComponent } from './component/overview/overview.component';
 import { ModelBarChartComponent } from './component/model-bar-chart/model-bar-chart.component';
@@ -27,6 +27,9 @@ import { NgChartsModule } from 'ng2-charts';
 import { TwinSettingComponent } from './component/twin-setting/twin-setting.component';
 import { MessageComponent } from './component/message/message.component';
 import { ServiceComponent } from './component/service/service.component';
+import { LoaderInterceptor } from './services/loader-interceptor.service';
+import { LoaderComponent } from './component/loader/loader.component';
+import { AlertComponent } from './component/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,9 @@ import { ServiceComponent } from './component/service/service.component';
     ModelBarChartComponent,
     TwinSettingComponent,
     MessageComponent,
-    ServiceComponent
+    ServiceComponent,
+    LoaderComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,11 @@ import { ServiceComponent } from './component/service/service.component';
     HttpClientModule,
     NgChartsModule
   ],
-  providers: [SceneService],
+  providers: [SceneService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoaderInterceptor,
+    multi: true,
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

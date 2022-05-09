@@ -27,6 +27,7 @@ export class DigitalTwinOverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.digitalTwin)
     }
 
   @ViewChild('container')

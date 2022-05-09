@@ -27,30 +27,6 @@ export class PredictComponent implements OnInit {
 
   getLatestData() {
     this.trainData = [
-      { name: "Sensor1", value: 0.43 },
-      { name: "Sensor2", value: 0.67 },
-      { name: "Sensor3", value: 0.25 },
-      { name: "Sensor5", value: 0.23 },
-      { name: "Sensor6", value: 0.25 },
-      { name: "Sensor7", value: 0.20 },
-      { name: "Sensor8", value: 0.43 },
-      { name: "Sensor9", value: 0.67 },
-      { name: "Sensor13", value: 0.25 },
-      { name: "Sensor15", value: 0.23 },
-      { name: "Sensor19", value: 0.25 },
-      { name: "Sensor17", value: 0.20 },
-      { name: "Sensor1", value: 0.43 },
-      { name: "Sensor2", value: 0.67 },
-      { name: "Sensor3", value: 0.25 },
-      { name: "Sensor5", value: 0.23 },
-      { name: "Sensor6", value: 0.25 },
-      { name: "Sensor7", value: 0.20 },
-      { name: "Sensor8", value: 0.43 },
-      { name: "Sensor9", value: 0.67 },
-      { name: "Sensor13", value: 0.25 },
-      { name: "Sensor15", value: 0.23 },
-      { name: "Sensor19", value: 0.25 },
-      { name: "Sensor17", value: 0.20 }
     ];
 
     this.isLatestData = true;

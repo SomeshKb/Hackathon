@@ -1,13 +1,11 @@
-<div>
-    <div>
-      <div style="display: block">
-        <canvas baseChart
-          [data]="barChartData"
-          [options]="barChartOptions"
-          [type]="barChartType"
-          (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)">
-        </canvas>
-      </div>
-    </div>
-  </div>
+<div id="chart" *ngIf="chartEnabled">
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [xaxis]="chartOptions.xaxis"
+    [dataLabels]="chartOptions.dataLabels"
+    [grid]="chartOptions.grid"
+    [stroke]="chartOptions.stroke"
+    [title]="chartOptions.title"
+  ></apx-chart>
+</div>

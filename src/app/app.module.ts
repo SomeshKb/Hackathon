@@ -23,7 +23,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PredictComponent } from './component/predict/predict.component';
 import { OverviewComponent } from './component/overview/overview.component';
 import { ModelBarChartComponent } from './component/model-bar-chart/model-bar-chart.component';
-import { NgChartsModule } from 'ng2-charts';
 import { TwinSettingComponent } from './component/twin-setting/twin-setting.component';
 import { MessageComponent } from './component/message/message.component';
 import { ServiceComponent } from './component/service/service.component';
@@ -31,6 +30,7 @@ import { LoaderInterceptor } from './services/loader-interceptor.service';
 import { LoaderComponent } from './component/loader/loader.component';
 import { AlertComponent } from './component/alert/alert.component';
 import { AboutComponent } from './about/about.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -65,7 +65,7 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgChartsModule
+    NgApexchartsModule
   ],
   providers: [SceneService, {
     provide: HTTP_INTERCEPTORS,

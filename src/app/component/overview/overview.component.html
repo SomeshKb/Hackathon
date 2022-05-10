@@ -5,30 +5,21 @@
 
     <img src="assets/images/turbo-schematics.png" class="image-details" alt="" srcset="">
 
+    <h2 class="sensor-overview">
+        Sensor Overview
+    </h2>
+    <h5>
+        Select a senor to generate overview graph 
+    </h5>
+
     <mat-form-field appearance="outline" class="sensor-dropdown">
         <mat-label>Select Sensor Data</mat-label>
-        <mat-select panelClass="select-panel">
-            <mat-option value="T2">Total temperature at fan inlet (°R) </mat-option>
-            <mat-option value="T24">Total temperature at LPC outlet (°R) </mat-option>
-            <mat-option value="T30">Total temperature at HPC outlet (°R) </mat-option>
-            <mat-option value="T50">Total temperature at LPT outlet (°R) </mat-option>
-            <mat-option value="P2">Pressure at fan inlet (psia) </mat-option>
-            <mat-option value="P15">Total pressure in bypass-duct (psia) </mat-option>
-            <mat-option value="P30">Total pressure at HPC outlet (psia) </mat-option>
-            <mat-option value="Nf">Physical fan speed (rpm) </mat-option>
-            <mat-option value="Nc">Physical core speed (rpm) </mat-option>
-            <mat-option value="epr">Engine pressure ratio </mat-option>
-            <mat-option value="Ps30">Static pressure at HPC outlet (psia) </mat-option>
-            <mat-option value="phi">Ratio of fuel flow to Ps30 (pps/psi) </mat-option>
-            <mat-option value="NRf">Corrected fan speed (rpm) </mat-option>
-            <mat-option value="NRc">Corrected core speed (rpm) </mat-option>
-            <mat-option value="BPR">Bypass Ratio </mat-option>
-            <mat-option value="farB">Burner fuel-air ratio </mat-option>
-            <mat-option value="htBleed">Bleed Enthalpy </mat-option>
-            <mat-option value="Nf_dmd">Demanded fan speed (rpm) </mat-option>
-            <mat-option value="PCNfR_dmd">Demanded corrected fan speed (rpm) </mat-option>
-            <mat-option value="W31">HPT coolant bleed (lbm/s) </mat-option>
-            <mat-option value="W3">LPT coolant bleed (lbm/s) </mat-option>
+        <mat-select panelClass="select-panel" (selectionChange)="getSensorSelection($event.value)">
+            <mat-option *ngFor="let sensor of sensors" [value]="sensor">{{sensor.name}}</mat-option>
         </mat-select>
     </mat-form-field>
+    <app-model-bar-chart [data]="chartData"></app-model-bar-chart>
+
 </div>
+
+

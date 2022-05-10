@@ -1,51 +1,79 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartType, ChartData, ChartEvent } from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexGrid, ApexStroke, ApexTitleSubtitle, ApexXAxis, ChartComponent } from 'ng-apexcharts';
 
 @Component({
   selector: 'app-model-bar-chart',
   templateUrl: './model-bar-chart.component.html',
   styleUrls: ['./model-bar-chart.component.scss']
 })
-export class ModelBarChartComponent implements OnInit {
+export class ModelBarChartComponent implements OnInit,OnChanges {
+  @Input('data') chartData: any;
+  @ViewChild('chart')
+  chart!: ChartComponent;
 
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+  chartEnabled : boolean = false;
 
-  public barChartOptions: ChartConfiguration['options'] = {
-    responsive: true,
-    // We use these empty structures as placeholders for dynamic theming.
-    scales: {
-      x: {},
-      y: {
-        min: 10
-      }
-    },
-    plugins: {
-      legend: {
-        display: true,
-      }
-    }
-  };
-  public barChartType: ChartType = 'bar';
+  public chartOptions: Partial<ChartOptions> | any;
 
-  @Input('data') barChartData : ChartData<'bar'> =  {
-    labels: [  ],
-    datasets: [
-      { data: [ ], label: '' }
-    ]
-  };
-
-  
-  constructor() { }
-
+  constructor() {
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.chartData)
+    this.setChartData();
+  }
   ngOnInit(): void {
-  }
-  // events
-  public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
-    console.log(event, active);
+    console.log(this.chartData)
+
   }
 
-  public chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
-    console.log(event, active);
+
+  setChartData() {
+    this.chartOptions = {
+      series: [
+        {
+          name: this.chartData.name ,
+          data: this.chartData.series
+        }
+      ],
+      chart: {
+        height: 350,
+        type: "line",
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: "straight"
+      },
+      grid: {
+        row: {
+          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+          opacity: 0.5
+        }
+      },
+      xaxis: {
+        categories: this.chartData.timeLine,
+        labels : {
+          show : false,
+        },
+        title :{
+          text : "Cycle"
+        }
+      },
+    };
+
+    this.chartEnabled = true;
   }
 }
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  dataLabels: ApexDataLabels;
+  grid: ApexGrid;
+  stroke: ApexStroke;
+};

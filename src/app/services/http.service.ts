@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class HttpService {
 
   url = "https://cryptic-falls-04173.herokuapp.com/api"
+  // url = "http://localhost:3000/api"
 
   constructor(private http: HttpClient) { }
 
@@ -34,4 +35,13 @@ export class HttpService {
   public deletDigitalTwin(id: number): Observable<any> {
     return this.http.delete(this.url + `/digital-twin/${id}`);
   }
+
+  public getTurbofanSensorData(id: string): Observable<any> {
+    return this.http.get(this.url + `/digital-twin/turbofan/${id}`);
+  }
+
+  public getSensorList(name: string): Observable<any> {
+    return this.http.get(this.url + `/digital-twin/sensordata/${name}`);
+  }
+
 }

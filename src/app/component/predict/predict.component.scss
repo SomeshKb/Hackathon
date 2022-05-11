@@ -12,6 +12,41 @@
     width: 100%;
   }
 }
+
 th.mat-header-cell.cdk-header-cell {
-    font-size: 20px;
+  font-size: 20px;
+}
+
+
+.mat-slider-horizontal {
+  height: 35px !important;
+  min-width: 400px !important;
+}
+
+.rul {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.group {
+  font-size: 20px;
+  padding: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.button-basic {
+  margin: 10px auto;
+
+}
+
+
+.dd{
+  width: 100%;
 }

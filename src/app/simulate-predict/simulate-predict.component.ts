@@ -1,13 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AlertService } from 'src/app/services/alert.service';
-import { HttpService } from 'src/app/services/http.service';
+import { TrainData } from '../component/predict/predict.component';
+import { AlertService } from '../services/alert.service';
+import { HttpService } from '../services/http.service';
 
 @Component({
-  selector: 'app-predict',
-  templateUrl: './predict.component.html',
-  styleUrls: ['./predict.component.scss']
+  selector: 'app-simulate-predict',
+  templateUrl: './simulate-predict.component.html',
+  styleUrls: ['./simulate-predict.component.scss']
 })
-export class PredictComponent implements OnInit {
+export class SimulatePredictComponent implements OnInit {
 
   @Input('digitalTwin') digitalTwin: any;
 
@@ -107,26 +108,3 @@ export class PredictComponent implements OnInit {
   }
 
 }
-
-
-
-
-export interface TrainData {
-  name: string;
-  value: number
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

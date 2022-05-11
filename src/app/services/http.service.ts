@@ -44,4 +44,8 @@ export class HttpService {
     return this.http.get(this.url + `/digital-twin/sensordata/${name}`);
   }
 
+  public rulPredict(sensorData: Object): Observable<any> {
+    return this.http.post(`https://floating-plateau-32825.herokuapp.com/predict`, sensorData);
+  }
+
 }

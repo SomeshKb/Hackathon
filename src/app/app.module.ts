@@ -31,6 +31,7 @@ import { LoaderComponent } from './component/loader/loader.component';
 import { AlertComponent } from './component/alert/alert.component';
 import { AboutComponent } from './about/about.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { SimulatePredictComponent } from './simulate-predict/simulate-predict.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     ServiceComponent,
     LoaderComponent,
     AlertComponent,
-    AboutComponent
+    AboutComponent,
+    SimulatePredictComponent
   ],
   imports: [
     BrowserModule,

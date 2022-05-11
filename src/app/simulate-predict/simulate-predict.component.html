@@ -1,0 +1,197 @@
+<div div fxLayout="column" class="content" fxLayoutAlign="space-around start" fxLayoutGap="20px">
+    <div>
+
+
+        <div class="group">
+            {{sensorDetails['sensor2']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor2"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor2}}
+            </div>
+        </div>
+
+        <div class="group">
+            {{sensorDetails['sensor3']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor3"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor3}}
+            </div>
+        </div>
+
+
+        <div class="group">
+            {{sensorDetails['sensor4']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor4"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor4}}
+            </div>
+        </div>
+
+
+
+        <div class="group">
+            {{sensorDetails['sensor7']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor7"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor7}}
+            </div>
+        </div>
+
+
+        <div class="group">
+            {{sensorDetails['sensor8']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor8"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor8}}
+            </div>
+        </div>
+
+
+        <div class="group">
+            {{sensorDetails['sensor9']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor9"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor9}}
+            </div>
+        </div>
+
+
+        <div class="group">
+            {{sensorDetails['sensor11']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor11"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor11}}
+            </div>
+
+        </div>
+
+
+        <div class="group">
+            {{sensorDetails['sensor12']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor12"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor12}}
+            </div>
+        </div>
+
+
+
+        <div class="group">
+            {{sensorDetails['sensor13']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor13"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor13}}
+            </div>
+        </div>
+
+
+        <div class="group">
+            {{sensorDetails['sensor14']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor14"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor14}}
+            </div>
+        </div>
+
+
+        <div class="group">
+            {{sensorDetails['sensor15']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor15"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor15}}
+            </div>
+        </div>
+
+
+        <div class="group">
+            {{sensorDetails['sensor17']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor17"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor17}}
+            </div>
+        </div>
+
+        <div class="group">
+            {{sensorDetails['sensor20']}}
+
+            <div>
+                <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor20"
+                    aria-labelledby="example-name-label">
+                </mat-slider>
+
+                {{sensor20}}
+            </div>
+        </div>
+
+        <div class="group">
+            {{sensorDetails['sensor21']}}
+
+            <div class="slider">
+                <div>
+                    <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensor21"
+                        aria-labelledby="example-name-label">
+                    </mat-slider>
+
+                    {{sensor21}}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <button mat-button class="button-basic" (click)="train()">Predict RUL</button>
+</div>
+
+<div *ngIf="rul!=null" class="rul"> {{ "RUL : " + rul + " cycles"}} </div>

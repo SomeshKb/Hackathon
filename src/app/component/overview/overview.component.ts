@@ -31,6 +31,7 @@ export class OverviewComponent implements OnInit {
   getSensorList() {
     this.httpService.getSensorList(this.digitalTwin?.machine?.name).subscribe(res => {
       this.sensors = res.data[0].sensor;
+      console.log(this.sensors)
     });
   }
 

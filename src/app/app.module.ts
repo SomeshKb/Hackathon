@@ -25,7 +25,6 @@ import { OverviewComponent } from './component/overview/overview.component';
 import { ModelBarChartComponent } from './component/model-bar-chart/model-bar-chart.component';
 import { TwinSettingComponent } from './component/twin-setting/twin-setting.component';
 import { MessageComponent } from './component/message/message.component';
-import { ServiceComponent } from './component/service/service.component';
 import { LoaderInterceptor } from './services/loader-interceptor.service';
 import { LoaderComponent } from './component/loader/loader.component';
 import { AlertComponent } from './component/alert/alert.component';
@@ -46,7 +45,6 @@ import { SimulatePredictComponent } from './simulate-predict/simulate-predict.co
     ModelBarChartComponent,
     TwinSettingComponent,
     MessageComponent,
-    ServiceComponent,
     LoaderComponent,
     AlertComponent,
     AboutComponent,

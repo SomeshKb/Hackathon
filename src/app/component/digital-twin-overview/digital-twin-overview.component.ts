@@ -22,8 +22,8 @@ export class DigitalTwinOverviewComponent implements OnInit {
     this.route.params.subscribe(res => {
       this.digitalTwinId = res["id"];
     })
-
     this.digitalTwin = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem(this.digitalTwinId))));
+    console.log("m",this.digitalTwin)
   }
 
   ngOnInit(): void {

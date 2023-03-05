@@ -73,10 +73,10 @@ export class CreateDigitalTwinComponent implements OnInit {
   connectionUrlChanged() {
     // console.log(this.machineForm.controls['machineID'].enable())
     this.mappedmachines = [
-      { name: "Turbofan 45", id: 1 },
-      { name: "Turbofan 56 ", id: 2 },
-      { name: "Turbofan 34", id: 3 },
-      { name: "Turbofan 33", id: 4 },
+      { name: "Electric Motor 45", id: 1 },
+      { name: "Electric Motor 56 ", id: 2 },
+      { name: "Electric Motor 34", id: 3 },
+      { name: "Electric Motor 33", id: 4 },
     ]
   }
 }

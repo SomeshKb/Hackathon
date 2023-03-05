@@ -12,6 +12,13 @@ export class OverviewComponent implements OnInit {
   selectedSensorData: any[] = [];
   chartData: any = {}
 
+  schematicImage : any = {
+     "Turbofan Engine": "assets/images/turbo-schematics.png",
+     "Electric Motor": "assets/images/motor-schematics.png",
+  }
+
+  selectedSchematics = "";
+
   sensors: Sensor[] = [
   ]
 
@@ -22,6 +29,8 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSensorList();
+    const machine = this.digitalTwin?.machine?.name;
+    this.selectedSchematics = this.schematicImage[machine];
   }
 
   getSensorSelection(value: any) {
@@ -30,8 +39,7 @@ export class OverviewComponent implements OnInit {
 
   getSensorList() {
     this.httpService.getSensorList(this.digitalTwin?.machine?.name).subscribe(res => {
-      this.sensors = res.data[0].sensor;
-      console.log(this.sensors)
+      this.sensors = res.data[0]?.sensor;
     });
   }
 

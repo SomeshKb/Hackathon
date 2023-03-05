@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  url = "https://cryptic-falls-04173.herokuapp.com/api"
-  // url = "http://localhost:3000/api"
+  // url = "https://cryptic-falls-04173.herokuapp.com/api"
+  url = "http://localhost:3000/api"
 
   constructor(private http: HttpClient) { }
 

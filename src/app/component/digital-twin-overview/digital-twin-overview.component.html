@@ -13,11 +13,11 @@
             <mat-tab label="Overview">
                 <app-overview [digitalTwin]="digitalTwin" ></app-overview>
             </mat-tab>
-            <mat-tab label="Predict">
-                    <app-predict [digitalTwin]="digitalTwin" ></app-predict>
+            <mat-tab label="Predict" [disabled]='isNotTurbofan()'>
+                    <app-predict  [digitalTwin]="digitalTwin" ></app-predict>
             </mat-tab>
 
-            <mat-tab label="Simulate and Predict">
+            <mat-tab label="Simulate and Predict" [disabled]='isNotTurbofan()'>
                 <app-simulate-predict [digitalTwin]="digitalTwin" ></app-simulate-predict>
         </mat-tab>
             <mat-tab label="Setting">

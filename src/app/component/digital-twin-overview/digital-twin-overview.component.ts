@@ -30,6 +30,10 @@ export class DigitalTwinOverviewComponent implements OnInit {
     console.log(this.digitalTwin)
     }
 
+  isNotTurbofan(){
+    return this.digitalTwin.machine.machineType !="Turbofan Engine" ? true : false ;
+  }
+
   @ViewChild('container')
   set container(container: ElementRef) {
     const digitalTwin: any = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem(this.digitalTwinId))))

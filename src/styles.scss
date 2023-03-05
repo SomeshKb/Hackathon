@@ -182,3 +182,7 @@ div#loading-text {
 .mat-tab-body-content{
   height: 90vh !important;
 }
+
+.mat-tab-label.mat-tab-disabled {
+  cursor: not-allowed !important;
+}
